@@ -1,0 +1,8 @@
+version: '3'
+services: 
+  core_api : 
+    build: .
+    container_name:  "container_core_api"
+    ports : ["8000:8000"]
+
+  

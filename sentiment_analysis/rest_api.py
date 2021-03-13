@@ -1,9 +1,8 @@
-import uvicorn
 from fastapi import FastAPI 
+import uvicorn
 from pydantic import BaseModel, conlist
 from fastapi.responses import JSONResponse
 from typing import Any, Collection, Dict, List, Optional, Union
-from main import main
 from classifier import sentiment_analysis , load_model
 from datasilo_for_prediction import create_data_loader
 import pandas as pd
@@ -53,5 +52,5 @@ async def get_answer(data : review_sentiment) :
     return JSONResponse (sentiment)
     
 
-if __name__ == '__main__':
-    uvicorn.run(app, host='127.0.0.1', port=8000)
+#if __name__ == '__main__':
+    #uvicorn.run(app, host='127.0.0.1', port=8000)
