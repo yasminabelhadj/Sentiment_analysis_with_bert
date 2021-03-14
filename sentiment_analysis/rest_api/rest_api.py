@@ -6,7 +6,7 @@ from typing import Any, Collection, Dict, List, Optional, Union
 from classifier import sentiment_analysis , load_model
 from datasilo_for_prediction import create_data_loader
 import pandas as pd
-from utils import get_sentiment
+#from utils import get_sentiment
 
 
 app = FastAPI(title = 'Sentiment analysis')
@@ -37,6 +37,14 @@ async def get_answer(data : review_sentiment) :
     
     tokenizer = Model.tokenizer
     dataloader = create_data_loader (df, tokenizer, max_len = 32, batch_size = 8)
+
+    def get_sentiment(preds ): 
+        if preds == '0' : 
+            return 'Negative'
+        elif preds == '1' : 
+            return 'Neutral' 
+        elif preds == '2' : 
+            return 'Positive'
 
     for data in dataloader : 
 

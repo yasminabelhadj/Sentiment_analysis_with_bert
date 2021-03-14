@@ -4,7 +4,7 @@ import os
 import requests
 from transformers import BertModel
 from utils import run   , run_local_model
-from classifier import load_model
+from rest_api.classifier import load_model
 
 st.write("# Sentiment analysis using bert")
 st.sidebar.header("Options")

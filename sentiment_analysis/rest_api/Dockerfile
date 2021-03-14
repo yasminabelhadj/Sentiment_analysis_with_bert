@@ -5,11 +5,11 @@ RUN pip3 install fastapi
 RUN pip3 install uvicorn
 RUN pip3 install pandas
 RUN pip3 install torch
-RUN pip3 install streamlit
 
-COPY ./sentiment_analysis  /app/sentiment_analysis
+COPY .  /app/rest_api
 
-WORKDIR /app/sentiment_analysis
+WORKDIR /app/rest_api
+
+EXPOSE 8000
  
 CMD  ["uvicorn" , "rest_api:app" ,  "--reload" , "--port" , "8000"]
-#CMD ["streamlit" , "run" , "sentiment_analysis/webpage.py"]
